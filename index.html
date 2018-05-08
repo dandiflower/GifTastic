@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="style.css" /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="app.js"></script> -->
+</head>
+<body>
+</br>
+
+<div id="gif-container">
+
+</div>
+<form>
+
+    <label for="but-input">Make a New Gif!!!😄</label><br>
+    <input type="text" id="but-input"></input>
+
+    <input id="add-gif" type="submit"></input>
+
+</form>
+
+
+
+<script>
+
+// document.ready
+
+    var buttonArray = ["farley","bacon","chicken"];
+
+    $("#add-gif").on("click", function (event) {
+        event.preventDefault();
+    
+        var topic = $("#but-input").val();
+
+        buttonArray.push(topic);
+
+        renderButton();
+    });
+
+
+function renderButton(){
+
+    $('#gif-container').empty();
+
+    for(var i =0;i< buttonArray.length; i++){
+        var newBtn = $("<button>");
+        newBtn.attr("data-topic", buttonArray[i]);
+        newBtn.attr("class","gif-button")
+        newBtn.text(buttonArray[i]);
+        //add data-topic of topic
+        $('#gif-container').append(newBtn)
+    }
+};
+
+
+    $(document).on("click", ".gif-button", function () {
+        // console.log(this)
+      var topic = $(this).attr('data-topic');
+      retrieveGifs(topic);
+    });
+
+    function retrieveGifs(keyword){
+        //ajax call
+        
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + keyword + "&api_key=dc6zaTOxFJmzC&limit=10";
+        $.ajax({
+          url: queryURL,
+         method: "GET" 
+         }).then(function(response){
+            
+            appendToScreen(response.data)
+         })
+    }
+    function appendToScreen(arr){
+       console.log(arr);
+       for(var i=0;i< arr.length;i++){
+           var myGifDiv = $('<div>')
+           myGifDiv.html("Rating: " + arr[i].rating)
+           var myImg = $('<img>')
+           myImg.attr("src", arr[i].url)
+            myGifDiv.append(myImg);          
+            $("#gif-container").append(myGifDiv);
+       } 
+    };
+    
+
+renderButton()
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
