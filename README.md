@@ -6,9 +6,6 @@ Users can generate additional search buttons by entering items into the text fie
 
 * HTML
 * CSS
-* Javascript
-* JQuery
-* API data
 
 ## Author
 
