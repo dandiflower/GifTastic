@@ -18,7 +18,7 @@ var buttonArray = ["Capoeira", "Lindy Hop", "Ballet"];
 
 function renderButton(){
 
-    $('#gif-container').empty();
+    $('#but').empty();
 
     for(var i =0;i< buttonArray.length; i++){
         var newBtn = $("<button>");
@@ -26,7 +26,7 @@ function renderButton(){
         newBtn.attr("class","gif-button");
         newBtn.text(buttonArray[i]);
         //add data-topic of topic
-        $('#gif-container').append(newBtn);
+        $('#but').append(newBtn);
         
     }
 }
@@ -63,7 +63,7 @@ renderButton();
            myImg.attr("src", arr[i].images.fixed_height_still.url);
            myImg.attr("data-still", arr[i].images.fixed_height_still.url);
            myImg.attr("data-animate", arr[i].images.fixed_height.url);
-            myGifDiv.append(myImg);          
+            myGifDiv.prepend(myImg);          
             var myGif = $("<img>");
             //myImg.attr("data-gif", arr[i].images.fixed_height.url);
             $("#gif-container").prepend(myGifDiv);
@@ -113,16 +113,6 @@ renderButton();
 
             
 
-    
-        // if (x.style.display === "true") {
-        //     x.style.display = "true";
-        // } else {
-        //     x.style.display = "false";
-        // }
-    
-
-    // function myForm() {
-    //     
 
 };
 

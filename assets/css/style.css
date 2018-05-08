@@ -1,5 +1,11 @@
 
 
-.gifs {
-    float: right;
+body {
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.row {
+    float: left;
+    padding: 2%;
 }
