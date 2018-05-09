@@ -59,7 +59,7 @@ renderButton();
         
         var myGifDiv = $('<div>');
            myGifDiv.html("Rating: " + arr[i].rating);
-           myGifDiv.addClass("rating");
+           myGifDiv.addClass("card");
            var myImg = $('<img>');
            myImg.attr("src", arr[i].images.fixed_height_still.url);
            myImg.attr("data-still", arr[i].images.fixed_height_still.url);
