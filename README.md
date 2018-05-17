@@ -4,6 +4,8 @@ Users can generate additional search buttons by entering items into the text fie
 
 ## Built With
 
+* API
+* Javascript
 * HTML
 * CSS
 
@@ -18,3 +20,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Berkeley Bootcamp
+
+## Link
+
+* (https://dandiflower.github.io/GifTastic/)
